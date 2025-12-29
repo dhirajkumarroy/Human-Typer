@@ -1,0 +1,77 @@
+{
+  "name": "human-typer",
+  "displayName": "Human Typer",
+  "description": "Types code like a real human with configurable speed, smart pauses, and optional mistake simulation. Perfect for tutorials and demos.",
+  "version": "1.0.0",
+  "engines": {
+    "vscode": "^1.107.0"
+  },
+  "categories": [
+    "Other"
+  ],
+  "main": "./dist/extension.js",
+  "contributes": {
+    "commands": [
+      {
+        "command": "human-typer.typeClipboard",
+        "title": "Human Typer: Type Clipboard"
+      },
+      {
+        "command": "human-typer.typeFromFile",
+        "title": "Human Typer: Type From File"
+      },
+      {
+        "command": "human-typer.stopTyping",
+        "title": "Human Typer: Stop Typing"
+      }
+    ],
+    "configuration": {
+      "type": "object",
+      "title": "Human Typer",
+      "properties": {
+        "humanTyper.minDelay": {
+          "type": "number",
+          "default": 30
+        },
+        "humanTyper.maxDelay": {
+          "type": "number",
+          "default": 90
+        },
+        "humanTyper.pauseAfterNewLine": {
+          "type": "number",
+          "default": 200
+        },
+        "humanTyper.pauseAfterBrace": {
+          "type": "number",
+          "default": 300
+        },
+        "humanTyper.pauseAfterSemicolon": {
+          "type": "number",
+          "default": 180
+        },
+        "humanTyper.lineByLine": {
+          "type": "boolean",
+          "default": false,
+          "description": "Type line by line instead of character by character"
+        },
+        "humanTyper.mistakeChance": {
+          "type": "number",
+          "default": 0,
+          "description": "Chance (0–1) of simulating a typing mistake"
+        }
+      }
+    }
+  },
+  "scripts": {
+    "compile": "npm run check-types && node esbuild.js",
+    "watch": "node esbuild.js --watch",
+    "watch:esbuild": "node esbuild.js --watch",
+    "check-types": "tsc --noEmit"
+  },
+  "devDependencies": {
+    "@types/vscode": "^1.107.0",
+    "@types/node": "22.x",
+    "typescript": "^5.9.3",
+    "esbuild": "^0.27.1"
+  }
+}
