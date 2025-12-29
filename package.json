@@ -1,8 +1,11 @@
 {
   "name": "human-typer",
-  "displayName": "Human Typer",
+  "displayName": "Human-Auto-Typer",
   "description": "Types code like a real human with configurable speed, smart pauses, and optional mistake simulation. Perfect for tutorials and demos.",
+  "publisher": "dhirajkumar",
   "version": "1.0.0",
+  "icon": "icon.png",
+  "license": "MIT",
   "engines": {
     "vscode": "^1.107.0"
   },
